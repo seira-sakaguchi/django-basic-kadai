@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+ 
+ {% block title %}商品一覧{% endblock %}
+ {% block content %}
+ <h1>商品詳細</h1>
+    {% csrf_token %}
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>商品名</th>
+                <th>価格</th>
+    </thead>
+    <tr>
+        <!-- 通常フィールドはobject変数に渡される -->
+        <td>{{ object.name }}</td>
+        <td>{{ object.price }} 円</td>
+    </tr>
+    </table>
+    <br>
+    <a href="{% url 'list' %}">戻る</a>
+    
+
+{% endblock %}
