@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+ 
+ {% block title %}商品一覧{% endblock %}
+ {% block content %}
+ <h1>商品一覧</h1>
+ <table class="table table-striped table-hover table-bordered">
+     <thead>
+         <tr>
+             <th>商品名</th>
+             <th>価格</th>
+             <th>詳細</th>
+         </tr>
+     </thead>
+     {% for product in object_list %}
+     <tr>
+         <td>{{ product.name }}</td>
+         <td>{{ product.price }} 円</td>
+         <td><button class="btn btn-primary" onclick="location.href='{% url 'detail' pk=product.pk %}'">詳細</button>
+         </td>
+    </tr>
+    {% endfor %}
+ </table>
+ {% endblock %}
